@@ -1,6 +1,7 @@
 package ca.durhamcollege.oop3200f2022week13a.Controllers;
 import ca.durhamcollege.oop3200f2022week13a.Managers.SceneManager;
 import ca.durhamcollege.oop3200f2022week13a.Managers.Utility;
+import ca.durhamcollege.oop3200f2022week13a.core.Line;
 import ca.durhamcollege.oop3200f2022week13a.core.Vector2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,12 @@ public class ShapeViewController implements Initializable
     private Label TotalDistanceLabel;
 
     @FXML
+    private Label LineWidthLabel;
+
+    @FXML
+    private Label LineColorLabel;
+
+    @FXML
     private TextField TotalDistanceTextView;
 
     @FXML
@@ -36,6 +43,12 @@ public class ShapeViewController implements Initializable
 
     @FXML
     private Spinner<Double> YInputSpinner;
+
+    @FXML
+    private Spinner<Double> LineWidthSpinner;
+
+    @FXML
+    private ColorPicker LineColorPicker;
 
     @FXML
     void AddVectorButton_Clicked(ActionEvent event)
@@ -63,7 +76,10 @@ public class ShapeViewController implements Initializable
     {
         var selectedItemsList = Vector2ListView.getSelectionModel().getSelectedItems().stream().toList();
 
-        SceneManager.Instance().changeScene(event, "vector2-canvas.fxml", selectedItemsList);
+        var width = LineWidthSpinner.getValue().floatValue();
+        var color = LineColorPicker.getValue();
+        var line = new Line(selectedItemsList.get(0), selectedItemsList.get(1), width, color);
+        SceneManager.Instance().changeScene(event, "vector2-canvas.fxml", line);
     }
 
 
@@ -86,19 +102,20 @@ public class ShapeViewController implements Initializable
 
             if(Vector2ListView.getSelectionModel().getSelectedItems().size() == 2)
             {
-                DrawShapeButton.setVisible(true);
+                showDrawLineUI();
             }
             else
             {
-                DrawShapeButton.setVisible(false);
+                hideDrawLineUI();
             }
         });
 
         // Configure the XInputSpinner
-        Utility.Instance().ConfigureVector2Spinner(XInputSpinner, -1000.0, 1000.0, 0.0, 0.1);
+        Utility.Instance().ConfigureSpinner(XInputSpinner, -1000.0, 1000.0, 0.0, 0.1);
         // Configure the YInputSpinner
-        Utility.Instance().ConfigureVector2Spinner(YInputSpinner, -1000.0, 1000.0, 0.0, 0.1);
-
+        Utility.Instance().ConfigureSpinner(YInputSpinner, -1000.0, 1000.0, 0.0, 0.1);
+        // Configure the LineWidthSpinner
+        Utility.Instance().ConfigureSpinner(LineWidthSpinner, 0.0, 20.0, 1.0, 0.1);
     }
 
     private void showDistanceUI()
@@ -115,4 +132,23 @@ public class ShapeViewController implements Initializable
         TotalDistanceTextView.setVisible(false);
         TotalDistanceTextView.clear();
     }
+
+    private void showDrawLineUI()
+    {
+        DrawShapeButton.setVisible(true);
+        LineWidthLabel.setVisible(true);
+        LineWidthSpinner.setVisible(true);
+        LineColorLabel.setVisible(true);
+        LineColorPicker.setVisible(true);
+    }
+
+    private void hideDrawLineUI()
+    {
+        DrawShapeButton.setVisible(false);
+        LineWidthLabel.setVisible(false);
+        LineWidthSpinner.setVisible(false);
+        LineColorLabel.setVisible(false);
+        LineColorPicker.setVisible(false);
+    }
+
 }

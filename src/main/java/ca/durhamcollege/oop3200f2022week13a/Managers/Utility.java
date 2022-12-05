@@ -1,9 +1,13 @@
 package ca.durhamcollege.oop3200f2022week13a.Managers;
 
+import ca.durhamcollege.oop3200f2022week13a.core.Line;
 import ca.durhamcollege.oop3200f2022week13a.core.Mathf;
+import ca.durhamcollege.oop3200f2022week13a.core.Vector2;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 /* singleton */
 public class Utility
@@ -38,7 +42,7 @@ public class Utility
         return Mathf.Sqrt(diffXs * diffXs + diffYs * diffYs);
     }
 
-    public void ConfigureVector2Spinner(Spinner<Double> spinner, double min, double max, double default_value, double increment_value)
+    public void ConfigureSpinner(Spinner<Double> spinner, double min, double max, double default_value, double increment_value)
     {
         // Configure each spinner in this way:
         // step 1. Define a SpinnerValueFactory
@@ -59,5 +63,19 @@ public class Utility
             }
         });
 
+    }
+
+    public void DrawLine(GraphicsContext context, Vector2 start, Vector2 end, float line_width, Color color)
+    {
+        context.setStroke(color);
+        context.setLineWidth(line_width);
+        context.strokeLine(start.getX(), start.getY(), end.getX(), end.getY());
+    }
+
+    public void DrawLine(GraphicsContext context, Line line)
+    {
+        context.setStroke(line.getColor());
+        context.setLineWidth(line.getWidth());
+        context.strokeLine(line.getStart().getX(), line.getStart().getY(), line.getEnd().getX(), line.getEnd().getY());
     }
 }

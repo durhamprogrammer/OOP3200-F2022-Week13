@@ -1,6 +1,7 @@
 package ca.durhamcollege.oop3200f2022week13a.Managers;
 
 import ca.durhamcollege.oop3200f2022week13a.Main;
+import ca.durhamcollege.oop3200f2022week13a.core.Line;
 import ca.durhamcollege.oop3200f2022week13a.core.Vector2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,7 @@ public class SceneManager
 
     // static instance members
     public static List<Vector2> vector2List = null;
+    public static Line line = null;
 
 
     public void changeScene(ActionEvent event, String FXMLFileName) throws IOException
@@ -53,6 +55,18 @@ public class SceneManager
     public void changeScene(ActionEvent event, String FXMLFileName, List<Vector2> vector2List) throws IOException
     {
         SceneManager.vector2List = vector2List;
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(FXMLFileName));
+        Scene scene = new Scene(fxmlLoader.load());
+        // derive the stage (window) from the action event (button press)
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void changeScene(ActionEvent event, String FXMLFileName, Line line) throws IOException
+    {
+        SceneManager.line = line;
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(FXMLFileName));
         Scene scene = new Scene(fxmlLoader.load());
