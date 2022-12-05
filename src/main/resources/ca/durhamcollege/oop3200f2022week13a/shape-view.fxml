@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.durhamcollege.oop3200f2022week13a.Controllers.ShapeViewController">
@@ -103,7 +104,11 @@
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <ColorPicker fx:id="LineColorPicker" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <ColorPicker fx:id="LineColorPicker" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                     <value>
+                        <Color />
+                     </value>
+                  </ColorPicker>
                     </children>
                     <BorderPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
