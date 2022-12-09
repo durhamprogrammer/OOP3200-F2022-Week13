@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.durhamcollege.oop3200f2022week13a.Controllers.ShapeViewController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.durhamcollege.oop3200f2022week13a.Controllers.ShapeViewController">
     <children>
         <BorderPane layoutX="186.0" layoutY="86.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <right>
@@ -42,18 +42,24 @@
                             <GridPane.margin>
                                 <Insets left="5.0" right="5.0" />
                             </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                         </Label>
                         <Label text="Y:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets left="5.0" right="5.0" />
                             </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                         </Label>
-                        <Label text="Add New Vector" GridPane.columnSpan="4" GridPane.halignment="CENTER">
+                        <Label stylesheets="@app.css" text="Add New Vector" GridPane.columnSpan="4" GridPane.halignment="CENTER">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <Button fx:id="AddVectorButton" mnemonicParsing="false" onAction="#AddVectorButton_Clicked" prefHeight="25.0" prefWidth="100.0" text="Add Vector" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <Button fx:id="AddVectorButton" mnemonicParsing="false" onAction="#AddVectorButton_Clicked" prefHeight="25.0" prefWidth="100.0" styleClass="buttons" stylesheets="@app.css" text="Add Vector" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                             <padding>
                                 <Insets left="5.0" right="5.0" />
                             </padding>
@@ -66,7 +72,7 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <Button fx:id="CalculateDistanceButton" mnemonicParsing="false" onAction="#CalculateDistanceButton_Clicked" text="Calculate Distance" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                        <Button fx:id="CalculateDistanceButton" mnemonicParsing="false" onAction="#CalculateDistanceButton_Clicked" styleClass="buttons" stylesheets="@app.css" text="Calculate Distance" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                             <GridPane.margin>
                                 <Insets left="5.0" right="5.0" />
                             </GridPane.margin>
@@ -81,7 +87,7 @@
                                 <Insets left="5.0" right="5.0" />
                             </GridPane.margin>
                         </TextField>
-                  <Button fx:id="DrawShapeButton" mnemonicParsing="false" onAction="#DrawShapeButton_Clicked" text="Draw Line" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                  <Button fx:id="DrawShapeButton" mnemonicParsing="false" onAction="#DrawShapeButton_Clicked" styleClass="buttons" stylesheets="@app.css" text="Draw Line" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
@@ -91,20 +97,20 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Spinner fx:id="XInputSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Spinner fx:id="YInputSpinner" editable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Spinner fx:id="XInputSpinner" editable="true" styleClass="spinners" stylesheets="@app.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Spinner fx:id="YInputSpinner" editable="true" styleClass="spinners" stylesheets="@app.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label fx:id="LineWidthLabel" text="Line Width:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Spinner fx:id="LineWidthSpinner" editable="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Spinner fx:id="LineWidthSpinner" editable="true" styleClass="spinners" stylesheets="@app.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label fx:id="LineColorLabel" text="Line Color:" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <ColorPicker fx:id="LineColorPicker" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                  <ColorPicker fx:id="LineColorPicker" styleClass="color-pickers" stylesheets="@app.css" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
                      <value>
                         <Color />
                      </value>
@@ -119,7 +125,7 @@
                 </GridPane>
             </right>
             <top>
-                <Label text="Vector 2 List" BorderPane.alignment="CENTER">
+                <Label styleClass="labels" text="Vector 2 List" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>

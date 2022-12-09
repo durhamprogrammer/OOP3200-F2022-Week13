@@ -1,0 +1,62 @@
+* {
+    -fx-primary: #0d6efd;
+    -fx-warning: #ffc107;
+    -fx-danger: #dc3545;
+    -fx-secondary: #adb5bd;
+    -fx-success: #198754;
+}
+
+
+.labels
+{
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 24px;
+}
+
+.buttons
+{
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.spinners .increment-arrow-button,
+.spinners .decrement-arrow-button
+{
+    -fx-body-color: -fx-primary;
+}
+
+.spinners .increment-arrow-button .increment-arrow,
+.spinners .decrement-arrow-button .decrement-arrow
+{
+    -fx-background-color: white;
+}
+
+.spinners
+{
+    -fx-effect: dropshadow( gaussian, -fx-primary , 0.5, 1.0,1.0,1.0);
+}
+
+.color-pickers
+{
+    -fx-background-color: -fx-primary;
+}
+
+.color-pickers .label
+{
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.color-picker .arrow
+{
+    -fx-background-color: white;
+}
+
+.my-canvas
+{
+    -fx-border-width: 2px;
+    -fx-border-color: -fx-secondary;
+}
+

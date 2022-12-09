@@ -37,31 +37,8 @@ public class Vector2CanvasController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        drawCanvasBorder();
-
         line= SceneManager.Instance().line;
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Utility.Instance().DrawLine(gc, line);
-
-    }
-
-    private void drawCanvasBorder()
-    {
-        GraphicsContext gc = canvas.getGraphicsContext2D() ;
-        gc.setStroke(Color.BLACK);
-        gc.moveTo(0, 0);
-        gc.lineTo(canvas.getWidth(), 0 );
-        gc.stroke();
-        gc.moveTo(canvas.getWidth(), 0 );
-        gc.lineTo(canvas.getWidth(), canvas.getHeight());
-        gc.stroke();
-        gc.moveTo(canvas.getWidth(), canvas.getHeight());
-        gc.lineTo(0, canvas.getHeight());
-        gc.stroke();
-        gc.moveTo(0, canvas.getHeight());
-        gc.lineTo(0, 0);
-        gc.stroke();
-
-
     }
 }

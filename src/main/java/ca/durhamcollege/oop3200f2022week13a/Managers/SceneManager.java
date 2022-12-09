@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class SceneManager
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(FXMLFileName));
         Scene scene = new Scene(fxmlLoader.load());
-        // derive the stage (window) from the action event (button press)
+        //scene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

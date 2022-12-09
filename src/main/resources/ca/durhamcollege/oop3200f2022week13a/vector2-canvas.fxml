@@ -8,11 +8,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.durhamcollege.oop3200f2022week13a.Controllers.Vector2CanvasController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.durhamcollege.oop3200f2022week13a.Controllers.Vector2CanvasController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <Canvas fx:id="canvas" height="300.0" width="570.0" BorderPane.alignment="CENTER" />
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="570.0" styleClass="my-canvas" stylesheets="@app.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Canvas fx:id="canvas" height="300.0" width="570.0" />
+               </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </BorderPane.margin>
+            </AnchorPane>
          </center>
          <top>
             <Label text="Draw Line" BorderPane.alignment="CENTER">
@@ -25,7 +32,7 @@
             </Label>
          </top>
          <bottom>
-            <Button fx:id="VectorListButton" alignment="CENTER" mnemonicParsing="false" onAction="#VectorListButton_Clicked" text="Vector List" BorderPane.alignment="CENTER_RIGHT">
+            <Button fx:id="VectorListButton" alignment="CENTER" mnemonicParsing="false" onAction="#VectorListButton_Clicked" styleClass="buttons" stylesheets="@app.css" text="Vector List" BorderPane.alignment="CENTER_RIGHT">
                <BorderPane.margin>
                   <Insets bottom="10.0" right="10.0" />
                </BorderPane.margin>
